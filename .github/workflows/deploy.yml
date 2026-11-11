@@ -17,18 +17,22 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mylittlekitty
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: mylittlekitty/package-lock.json
       - run: npm ci
       - run: npm test
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: mylittlekitty/dist
 
   deploy:
     needs: build
