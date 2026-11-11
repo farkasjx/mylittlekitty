@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: ui-rounded, 'SF Pro Rounded', 'Nunito', 'Quicksand', 'Segoe UI', system-ui, sans-serif;
+  --color-cream: #fff7ee;
+  --color-peach: #ffe6d5;
+  --color-peach-deep: #ffcfb3;
+  --color-cocoa: #5a3b2e;
+  --color-cocoa-soft: #8a6a5a;
+  --color-rose: #f48fa8;
+  --color-rose-deep: #e0607f;
+  --color-mint: #7ecbb4;
+  --color-sky: #8fb8f4;
+  --color-butter: #f6c946;
+  --shadow-soft: 0 6px 18px -6px rgb(138 90 60 / 0.28);
+  --shadow-pop: 0 4px 0 0 rgb(138 90 60 / 0.18);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 10%, #fff2e6 0, #ffe1d1 45%, #fbd0c4 100%);
+  color: var(--color-cocoa);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sky);
+  outline-offset: 2px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
